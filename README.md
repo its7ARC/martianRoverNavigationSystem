@@ -1,5 +1,5 @@
 # martianRoverNavigationSystem
-Navigation system to find optimum paths for Martian rovers (ie- path with maximum research potential; traversal through which does not exceeds given time constraints).
+Navigation system to find optimum paths for Martian rovers (ie- path with maximum research potential and one that does not exceeds given time constraints).
 
 Maximising research in constrained time also ensures maximium research with minimum rover damage as less time => less locomotion => less wheel wear.
 
@@ -21,4 +21,4 @@ The red planet will be simulated on a graph; with nodes as points with research 
 
 Technology used:
 -> Recursion and backtracking for finding optimum path.
--> (Optimisation)Floyd Warshall's Algorithm, timeComplexity: O(V^3).... called only once after complete map entry to compute minimum time b/w all pair of nodes.
+-> (Optimisation)Floyd Warshall's Algorithm, timeComplexity: O(V^3).... called only once after complete map entry to compute minimum time b/w all pair of nodes. //System works without this optimization as well.
