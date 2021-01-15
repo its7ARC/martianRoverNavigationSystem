@@ -1,4 +1,42 @@
+
 //Navigation System for martian rovers
+
+/*Sample Graph(image shown in sampleGraph.png)
+//forTesting
+ //Adding nodes and edgeWts
+ 1 0 1 4
+ 1 0 2 3
+ 1 1 3 7
+ 1 3 4 5
+ 1 2 5 7
+ 1 0 6 8
+ 1 4 7 10
+ 1 4 5 5
+ 1 5 7 7
+ 1 6 7 2
+ 1 6 8 5
+ 
+ //adding research potential of nodes
+ 2 0 10
+ 2 1 15
+ 2 2 15
+ 2 3 12
+ 2 4 20
+ 2 5 30
+ 2 6 40
+ 2 7 100
+ 
+ //adding more nodes
+ 1 0 9 2
+ 1 9 10 2
+ 1 10 7 1
+ //assigning research potential to newly added nodes
+ 2 8 10
+ 2 9 5
+ 2 10 7
+ 
+*/
+
 
 #include <iostream>
 #include <vector>
@@ -143,7 +181,7 @@ public:
         floydWarshallAlgo(V);
     }
     
-    int traverse(int pos, int time, int b, int mask, pair<int,pair<int,list<int>>> *optPaths){
+    int traverse(int pos, int time, int b, vector<bool> visited, pair<int,pair<int,list<int>>> *optPaths){
         
         if(time < 0){
             return -2;
@@ -175,8 +213,10 @@ public:
             int toVisit = nbr.first;
             int edge = nbr.second;
             
-            if((mask & (1 << pos)) == 0){
-                dummy = traverse(toVisit, time-edge, b, mask|(1<<pos), optPaths);
+            if(visited[pos] == 0){
+                visited[pos] = 1;
+                dummy = traverse(toVisit, time-edge, b, visited, optPaths);
+                visited[pos] = 0;
                 
                 //if res equal , check for spareTime
                 if(dummy > maxRes || (dummy == maxRes && (maxST < optPaths[toVisit].second.first))){
@@ -246,7 +286,11 @@ public:
             cout << "Excess time Constraint encountered\nUse value less than 500\n";
             line();
         }
-        
+        if(a == b){
+            line();
+            cout << "No movement required\n";
+            line();
+        }
         if(a < V && b < V && wt[a][b] > time){
             line();
             cout << "No path possible from Node_" << a << " to Node_" << b << " within " << time << "hrs\n";
@@ -270,9 +314,9 @@ public:
         //
         
         path.push_back(a);
-        int mask = 0;
+        vector<bool> visited(l.size(),0);
         int totalResearch;
-        totalResearch = traverse(a,time,b,mask,optPaths);
+        totalResearch = traverse(a,time,b,visited,optPaths);
         
         printOptimalPath(optPaths[a],time,a,b);
     }
@@ -285,14 +329,13 @@ int main(){
     
     //ModelTest
     
-    //cout << "Testing model for various testCases and edgeCases\n";
     line();
 
     
     //graphEntry (mapInfo)
     Graph g;
     
-    int flag,n1,n2,wt,rp,tc,x,y,num;
+    int flag,n1,n2,wt,rp,tc;
     
     
     for(;;){
@@ -332,39 +375,5 @@ int main(){
     
     
 }
-
-/*Sample Graph
- 1 0 1 4
- 1 0 2 3
- 1 1 3 7
- 1 3 4 5
- 1 2 5 7
- 1 0 6 8
- 1 4 7 10
- 1 4 5 5
- 1 5 7 7
- 1 6 7 2
- 1 6 8 5
- 
- 1 0 9 2
- 1 9 10 2
- 1 10 7 1
- 
- 
- 2 0 10
- 2 1 15
- 2 2 15
- 2 3 12
- 2 4 20
- 2 5 30
- 2 6 40
- 2 7 100
- 2 8 10
- 
- 2 9 5
- 2 10 7
-
- 
-*/
 
 
