@@ -23,8 +23,8 @@ Technology used:
   - Recursion and backtracking to find optimum path.
   - (Optimisation)Floyd Warshall's Algorithm (to cache minimum time of traversal b/w all pair of vertices) // Model can run successfully without this cached data as well.
 
-- Model flow chart: https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/systemFlowChart.png
+Model flow chart: https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/systemFlowChart.png
 
-- Model Tests: https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/GUI.ipynb 
+Model Tests: https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/GUI.ipynb 
 
-- Detailed Project Report: https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/projectReport.pdf
+Detailed Project Report: https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/projectReport.pdf
