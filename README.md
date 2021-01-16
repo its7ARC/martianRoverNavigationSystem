@@ -6,7 +6,7 @@ The red planet has been simulated using a connected weighted graph (both vertice
 Vertex weight -> Research potential of vertex;
 Edge weight -> Time to travel through edge.
 
-//Model Input:
+//Model Input:    
   //Map Entry(dynamic):
   -> Vertex research potential
   -> Edge weights   
