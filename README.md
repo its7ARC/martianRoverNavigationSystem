@@ -9,7 +9,7 @@ Edge weight -> Time to travel through edge.
 //Model Input:
   //Map Entry(dynamic):
   -> Vertex research potential
-  -> Edge weights;  
+  -> Edge weights 
   //Path query inputs:
   -> Vertex 1 (Starting point for rover)
   -> Vertex 2 (Destination for rover)
