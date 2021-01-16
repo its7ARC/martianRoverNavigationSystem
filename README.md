@@ -24,4 +24,4 @@ Technology used:
 -> (Optimisation)Floyd Warshall's Algorithm (to cache minimum time of traversal b/w all pair of vertices) // Model can run successfully without this cached data as well.
 
 //System Test
-Visualisation of various testcases has been uploaded at https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/GUI.ipynb 
+Visualisation of various multiple has been uploaded at https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/GUI.ipynb 
