@@ -1,4 +1,4 @@
-# martianRoverNavigationSystem
+# Martian Rover Navigation System
 Navigation system to find optimum paths for Martian rovers (ie- path with maximum research potential and one that does not exceeds given time constraints).
 
 Simulation of Martian surface:
