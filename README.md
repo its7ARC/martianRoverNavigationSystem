@@ -3,7 +3,7 @@ Navigation system to find optimum paths for Martian rovers (ie- path with maximu
 
 //Simulation of Martian surface:
 The red planet has been simulated using a connected weighted graph (both vertices and edges have weights).
-Vertex weight -> Research potential of vertex
+Vertex weight -> Research potential of vertex;
 Edge weight -> Time to travel through edge.
 
 //Model Input:
