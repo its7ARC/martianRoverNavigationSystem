@@ -8,7 +8,7 @@ The red planet has been simulated using a connected weighted graph (both vertice
 
 Model Input:    
   - Map Entry(dynamic):   
-     - Vertex research potential
+     - Vertex weights
      - Edge weights   
   - Path query inputs:
     - Vertex 1 (Starting point for rover)
