@@ -13,7 +13,7 @@ Model Input:
   - Path query inputs:
     - Vertex 1 (Starting point for rover)
     - Vertex 2 (Destination for rover)
-    - Time constraint (Maximum time available for traversal b/w Node1 and Node2) 
+    - Time constraint (Maximum time available for traversal b/w Vertex 1 and Vertex 2) 
   
 Model Output:
    - Optimum path if traversal is possible in given time constraint / "No path possible"
