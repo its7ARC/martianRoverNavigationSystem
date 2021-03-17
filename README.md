@@ -16,7 +16,7 @@ Model Input:
     - Time constraint (Maximum time available for traversal b/w Vertex 1 and Vertex 2) 
   
 Model Output:
-   - Optimum path if traversal is possible in given time constraint / "No path possible"
+   - Optimum path if traversal is possible in the given time constraint / "No path possible"
 
 
 Technology used:
