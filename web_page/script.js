@@ -94,17 +94,75 @@ function drawCoordinates(x,y){
     ctx.fillText(node_no, x, y);
 }
 
+let graph_vertices = {};
+let graph_edges = {};
+
+function traverse(cur_pos, tc, b, visited, optPaths) {
+    if(tc<0) return -2;
+
+    if(cur_pos==b){
+        optPaths[b]["spt"] = tc;
+        optPaths[b]["path"] = [];
+        optPaths[b]["path"].push(b);
+        optPaths[b]["res"] = graph_vertices[b];
+        console.log("base case");
+        return optPaths[b]["res"];
+    }
+
+    // let copiedOptPaths = JSON.parse(JSON.stringify(optPaths));
+    let maxRes = -1, dummy, maxST = -1;
+    visited[cur_pos] = 1;
+
+    for(let i=0; i<graph_edges[cur_pos].length; i++){
+        let toVis = graph_edges[cur_pos][i][0];
+        let nbr_wt = graph_edges[cur_pos][i][1];
+        console.log(toVis, nbr_wt);
+        
+        if(visited[toVis]==0){
+            visited[toVis]=1;
+            dummy = traverse(toVis, tc-nbr_wt, b, visited, optPaths);
+            visited[toVis]=0;
+
+            // if(dummy>maxRes || (dummy==maxRes && (maxST<optPaths[b]["spt"]))){
+            if(parseInt(dummy)>parseInt(maxRes)){
+                maxRes = dummy;
+                console.log("max res update:", maxRes);
+                maxST = optPaths[b]["spt"];
+
+                optPaths[cur_pos] = optPaths[toVis];
+            }
+        }
+
+    }
+
+    optPaths[cur_pos]["res"] = maxRes + graph_vertices[cur_pos];
+    optPaths[cur_pos]["path"].unshift(cur_pos);
+    // optPaths[cur_pos]["res"] += graph_vertices[cur_pos];
+
+    visited[cur_pos] = 0; // backtracking
+    if(maxRes==-1) return -2;
+
+    console.log(optPaths[cur_pos]["res"]);
+    return optPaths[cur_pos]["res"];
+}
+
 find_btn.onclick = function() {
     //process vertices w/ RPs & edges
     // note : Add check condns later
-    let graph_vertices = {};
-    let graph_edges = {};
+    graph_vertices = {};
+    graph_edges = {};
+
+    let optPaths = {};
+    let visited = {};
+
     let rp_list = document.getElementsByClassName("rp_inps");
     for(let i=0; i<rp_list.length; i++) {
         // console.log(rp_list[i].value);
         let num = parseInt(rp_list[i].id.substring(5));
         graph_vertices[num] = parseInt(rp_list[i].value);
-        graph_edges[num] = {};
+        graph_edges[num] = [];
+        optPaths[num] = {"res": -2, "spt": -2, "path": []};
+        visited[num] = 0;
     }
     console.log(graph_vertices);
 
@@ -116,8 +174,15 @@ find_btn.onclick = function() {
         let to = parseInt(sel1[j].value);
         let from = parseInt(sel2[j].value);
         let weight = parseInt(ed_wt[j].value);
-        graph_edges[to][from] = weight;
-        graph_edges[from][to] = weight;
+
+        let arr1 = [];
+        let arr2 = [];
+        arr1.push(from, weight);
+        arr2.push(to, weight);
+        graph_edges[to].push(arr1);
+        graph_edges[from].push(arr2);
+        // graph_edges[to][from] = weight;
+        // graph_edges[from][to] = weight;
     }
 
     console.log(graph_edges);
@@ -126,4 +191,9 @@ find_btn.onclick = function() {
     let dest_vertex = parseInt(document.getElementById("destv").value);
     let time_const = parseInt(document.getElementById("tc").value);
     console.log(src_vertex, dest_vertex, time_const);
+
+    let tot_res = traverse(src_vertex, time_const, dest_vertex, visited, optPaths);
+    console.log(tot_res);
+    console.log(optPaths[src_vertex]["res"]);
+    console.log(optPaths[src_vertex]["path"]);
 }
