@@ -110,8 +110,9 @@ function traverse(cur_pos, tc, b, visited, optPaths) {
     }
 
     // let copiedOptPaths = JSON.parse(JSON.stringify(optPaths));
-    let maxRes = -1, dummy, maxST = -1;
+    let maxRes = -1, rec_ans, maxST = -1;
     visited[cur_pos] = 1;
+    let temp_path = [];
 
     for(let i=0; i<graph_edges[cur_pos].length; i++){
         let toVis = graph_edges[cur_pos][i][0];
@@ -120,29 +121,32 @@ function traverse(cur_pos, tc, b, visited, optPaths) {
         
         if(visited[toVis]==0){
             visited[toVis]=1;
-            dummy = traverse(toVis, tc-nbr_wt, b, visited, optPaths);
+            rec_ans = traverse(toVis, tc-nbr_wt, b, visited, optPaths);
             visited[toVis]=0;
 
-            // if(dummy>maxRes || (dummy==maxRes && (maxST<optPaths[b]["spt"]))){
-            if(parseInt(dummy)>parseInt(maxRes)){
-                maxRes = dummy;
-                console.log("max res update:", maxRes);
+            // if(rec_ans>maxRes || (rec_ans==maxRes && (maxST<optPaths[b]["spt"]))){
+            if(parseInt(rec_ans)>parseInt(maxRes) || (rec_ans==maxRes && (maxST<optPaths[b]["spt"]))){
+                maxRes = rec_ans;
                 maxST = optPaths[b]["spt"];
 
-                optPaths[cur_pos] = optPaths[toVis];
+                temp_path = optPaths[toVis]["path"];
+                // optPaths[cur_pos] = optPaths[toVis];
+                console.log("max res update:", maxRes, optPaths[cur_pos]["path"]);
             }
         }
 
     }
 
     optPaths[cur_pos]["res"] = maxRes + graph_vertices[cur_pos];
-    optPaths[cur_pos]["path"].unshift(cur_pos);
+    temp_path.unshift(cur_pos);
+    optPaths[cur_pos]["path"] = temp_path;
+    optPaths[cur_pos]["spt"] = maxST;
     // optPaths[cur_pos]["res"] += graph_vertices[cur_pos];
 
     visited[cur_pos] = 0; // backtracking
     if(maxRes==-1) return -2;
 
-    console.log(optPaths[cur_pos]["res"]);
+    console.log("return value:", optPaths[cur_pos]["res"]);
     return optPaths[cur_pos]["res"];
 }
 
@@ -194,6 +198,7 @@ find_btn.onclick = function() {
 
     let tot_res = traverse(src_vertex, time_const, dest_vertex, visited, optPaths);
     console.log(tot_res);
-    console.log(optPaths[src_vertex]["res"]);
-    console.log(optPaths[src_vertex]["path"]);
+    console.log("Max Research Possible:", optPaths[src_vertex]["res"]);
+    console.log("Path:", optPaths[src_vertex]["path"]);
+    console.log("Spare Time: ", optPaths[src_vertex]["spt"]);
 }
