@@ -16,16 +16,40 @@ canvas{
   background-repeat: no-repeat;
   background-size: cover;
   overflow-x: auto;
+  border: dashed 2px rgb(6, 30, 99);
 }
 
 #icon {
   border-radius: 50%;
   background-color: rgb(112, 201, 236);
+  /* background-color: rgb(20, 89, 146); */
 }
 
-/* div{
-  position:absolute;
-  z-index:0;
-  left:12px;
-  top:10px;
-} */
+#sidediv {
+  z-index: 5; 
+  position: absolute; 
+  right: 10px; 
+  top: 20px; 
+  background-color: ivory;
+
+  padding: 1%;
+}
+
+#sidediv2 {
+  z-index: 5;
+  position: absolute;
+  left: 10px;
+  top: 100px;
+
+  background-color: ivory;
+  padding: 1%;
+}
+
+#find {
+  margin: 5px 0;
+}
+
+#reset {
+  margin: 5px 0;
+  background-color: rgb(17, 179, 65);
+}
