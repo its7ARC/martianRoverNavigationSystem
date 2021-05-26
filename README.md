@@ -27,4 +27,4 @@ Model flow chart: [Flowchart](https://github.com/its7ARC/martianRoverNavigationS
 
 Model Tests: [Tests](https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/ModelTests.ipynb)
 
-Detailed Project Report: [Report](https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/projectReport.pdf)
+Detailed Project Report: [Report](https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/ADA_Report.pdf)
