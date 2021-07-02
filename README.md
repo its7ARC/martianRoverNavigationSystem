@@ -8,22 +8,21 @@ The red planet has been simulated using a connected weighted graph (both vertice
 
 Model Input:    
   - Map Entry(dynamic):   
-     - Vertex weights
-     - Edge weights   
+     - Vertex x-coordinates, weights.
+     - Edge weights
   - Path query inputs:
     - Vertex 1 (Starting point for rover)
     - Vertex 2 (Destination for rover)
-    - Time constraint (Maximum time available for traversal b/w Vertex 1 and Vertex 2) 
+    - Time Budget (Maximum time available for traversal b/w Vertex 1 and Vertex 2) 
   
 Model Output:
    - Optimum path if traversal is possible in the given time constraint / "No path possible"
 
-
 Technology used:
-  - Recursion and backtracking to find optimum path.
-  - (Optimisation)Floyd Warshall's Algorithm (to cache minimum time of traversal b/w all pair of vertices) // Model can run successfully without this cached data as well.
+  - Depth first search with memorisation(Dynamic Programming).
+  - A Star Algorithm.
 
-Model flow chart: [Flowchart](https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/ModelFlowChart.png)
+Model PPT: [PPT](https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/NavMars_SystemPPT.pdf)
 
 Model Tests: [Tests](https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/ModelTests.ipynb)
 
