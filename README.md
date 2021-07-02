@@ -24,6 +24,8 @@ Technology used:
 
 Model PPT: [PPT](https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/NavMars_SystemPPT.pdf)
 
+Sample Graph: [Graph](https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/SampleGraph.jpeg)
+
 Model Tests: [Tests](https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/ModelTests.ipynb)
 
 Detailed Project Report: [Report](https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/ADA_Report.pdf)
