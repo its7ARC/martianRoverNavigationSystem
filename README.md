@@ -23,12 +23,12 @@ Technology used:
   - A Star Algorithm.
 
 
-Model PPT: [PPT](https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/NavMars_SystemPPT.pdf)
+Project PPT: [PPT](https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/NavMars_SystemPPT.pdf)
 
-Source Code: [Code](https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/NavMars%20_withDPOptimisation.cpp)
+Source Code (Optimized DP Version): [Code](https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/NavMars%20_withDPOptimisation.cpp)
 
 Sample Graph: [Graph](https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/SampleGraph.jpeg)
 
-Model Tests: [Tests](https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/ModelTests.ipynb)
+Source Code (Backtracking Version) : [Code](https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/navigationSystem.cpp)
 
-Detailed Project Report: [Report](https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/ADA_Report.pdf)
+Model Tests (Backtracking Version) : [Tests](https://github.com/its7ARC/martianRoverNavigationSystem/blob/main/ModelTests.ipynb)
