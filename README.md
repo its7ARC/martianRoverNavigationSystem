@@ -1,5 +1,5 @@
 # Martian Rover Navigation System
-Navigation system to find optimum paths for Martian rovers (ie- path with maximum research potential and one that does not exceeds given time constraints).
+Navigation system to find optimum paths for Martian rovers(ie- Path with maximum research potential and one that does not exceeds the query time budget).
 
 Simulation of Martian surface:
 The red planet has been simulated using a connected weighted graph (both vertices and edges have weights).
